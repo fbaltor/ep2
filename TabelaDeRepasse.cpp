@@ -4,16 +4,11 @@
 
 TabelaDeRepasse::TabelaDeRepasse(int tamanho)
     // TODO Verificar se isso funciona kkk
-    : quantidade(0), padrao(NULL), atraso(0) {
-  if (tamanho <= 0)
-    throw new invalid_argument("Erro: 'tamanho' deve ser positivo!");
-
-  this->tamanho = tamanho;
-
-  this->enderecos = new int[tamanho];
-  this->atrasos = new int[tamanho];
-  this->adjacentes = new No *[tamanho];
-}
+    : tamanho(tamanho > 0 ? tamanho
+                          : throw new invalid_argument(
+                                "Erro: tamanho deve ser positivo!")),
+      enderecos(new int[tamanho]), atrasos(new int[tamanho]),
+      adjacentes(new No *[tamanho]), quantidade(0), padrao(NULL), atraso(0) {}
 
 TabelaDeRepasse::~TabelaDeRepasse() {
   delete[] enderecos;
