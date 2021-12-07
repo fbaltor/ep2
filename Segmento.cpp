@@ -13,3 +13,5 @@ int Segmento::getPortaDeOrigem() { return portaDeOrigem; }
 int Segmento::getPortaDeDestino() { return portaDeDestino; }
 
 string Segmento::getDado() { return dado; }
+
+void Segmento::imprimir() {}
