@@ -3,8 +3,6 @@
 
 #include "Segmento.h"
 
-using namespace std;
-
 class Datagrama {
 public:
   Datagrama(int origem, int destino, Segmento *dado);
