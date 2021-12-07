@@ -3,7 +3,6 @@
 #include <stdexcept>
 
 TabelaDeRepasse::TabelaDeRepasse(int tamanho)
-    // TODO Verificar se isso funciona kkk
     : tamanho(tamanho > 0 ? tamanho
                           : throw new invalid_argument(
                                 "Erro: tamanho deve ser positivo!")),
