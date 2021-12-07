@@ -1,13 +1,19 @@
 #include "TabelaDeRepasse.h"
+#include <iostream>
 #include <stdexcept>
 
 TabelaDeRepasse::TabelaDeRepasse(int tamanho)
     // TODO Verificar se isso funciona kkk
-    : tamanho(tamanho > 0 ? tamanho
-                          : throw new invalid_argument(
-                                "Erro: 'tamanho' deve ser positivo!")),
-      enderecos(new int[tamanho]), atrasos(new int[tamanho]),
-      adjacentes(new No *[tamanho]), quantidade(0), padrao(NULL), atraso(0) {}
+    : quantidade(0), padrao(NULL), atraso(0) {
+  if (tamanho <= 0)
+    throw new invalid_argument("Erro: 'tamanho' deve ser positivo!");
+
+  this->tamanho = tamanho;
+
+  this->enderecos = new int[tamanho];
+  this->atrasos = new int[tamanho];
+  this->adjacentes = new No *[tamanho];
+}
 
 TabelaDeRepasse::~TabelaDeRepasse() {
   delete[] enderecos;
@@ -58,4 +64,7 @@ No *TabelaDeRepasse::getProximoSalto(int endereco, int &atraso) {
   return adjacentes[indiceDoEndereco];
 }
 
-void TabelaDeRepasse::imprimir() {}
+void TabelaDeRepasse::imprimir() {
+  cout << "tamanho: " << tamanho << endl;
+  cout << "quantidade: " << quantidade << endl;
+}

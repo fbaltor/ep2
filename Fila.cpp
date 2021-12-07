@@ -42,3 +42,5 @@ Datagrama *Fila::dequeue() {
 bool Fila::isEmpty() { return (quantidade > 0) ? false : true; }
 
 int Fila::getSize() { return quantidade; }
+
+void Fila::imprimir() {}
