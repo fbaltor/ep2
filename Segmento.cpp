@@ -18,7 +18,11 @@ int Segmento::getPortaDeDestino() { return portaDeDestino; }
 string Segmento::getDado() { return dado; }
 
 void Segmento::imprimir() {
-  cout << "portaDeOrigem: " << portaDeOrigem << endl;
-  cout << "portaDeDestino: " << portaDeDestino << endl;
-  cout << "dado: " << dado << endl;
+  cout << "Imprimindo segmento:" << endl;
+  cout << "\t"
+       << "portaDeOrigem: " << portaDeOrigem << endl;
+  cout << "\t"
+       << "portaDeDestino: " << portaDeDestino << endl;
+  cout << "\t"
+       << "dado: " << dado << endl;
 }

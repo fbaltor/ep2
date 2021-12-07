@@ -17,5 +17,10 @@ public:
   virtual Datagrama *getDatagrama();
 
   virtual void imprimir();
+
+private:
+  int instante;
+  No *destino;
+  Datagrama *d;
 };
 #endif

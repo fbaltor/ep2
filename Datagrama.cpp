@@ -16,9 +16,12 @@ int Datagrama::getDestino() { return destino; }
 Segmento *Datagrama::getSegmento() { return dado; }
 
 void Datagrama::imprimir() {
-  cout << "origem: " << origem << endl;
-  cout << "destino: " << destino << endl;
-  cout << "dado: ";
+  cout << "Imprimindo datagrama:" << endl;
+  cout << "\t"
+       << "origem: " << origem << endl;
+  cout << "\t"
+       << "destino: " << destino << endl;
+  cout << "\t";
   dado->imprimir();
   cout << endl;
 }
