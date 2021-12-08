@@ -21,8 +21,10 @@ public:
   virtual void imprimir();
   static const int TAMANHO_FILA = 5;
 
+protected:
+  Fila *fila;
+
 private:
   int endereco;
-  Fila *fila;
 };
 #endif
