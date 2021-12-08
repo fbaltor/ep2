@@ -1,6 +1,7 @@
 #include "Chat.h"
 #include "Datagrama.h"
 #include "Hospedeiro.h"
+#include "Segmento.h"
 #include <stdexcept>
 #include <string>
 
@@ -15,10 +16,32 @@ Chat::~Chat() {}
 
 int Chat::getPorta() { return porta; }
 
-void Chat::enviar(string texto) {}
+void Chat::enviar(string texto) {
+  Segmento *segmento = new Segmento(porta, portaDestino, texto);
+  Datagrama *datagrama =
+      new Datagrama(hospedeiro->getEndereco(), enderecoDestino, segmento);
 
-void Chat::receber(Datagrama *d) {}
+  hospedeiro->receber(datagrama);
 
-string Chat::getTextoCompleto(){};
+  string preTexto = "\t\tEnviado: ";
+  string posTexto = "\n";
+  string intermediateTexto = preTexto.append(texto);
+  string finalTexto = intermediateTexto.append(posTexto);
+
+  textoCompleto.append(finalTexto);
+}
+
+void Chat::receber(Datagrama *d) {
+  string preTexto = "\t\tRecebido: ";
+  string posTexto = "\n";
+  string intermediateTexto = preTexto.append(d->getSegmento()->getDado());
+  string finalTexto = intermediateTexto.append(posTexto);
+
+  textoCompleto.append(finalTexto);
+
+  delete d;
+}
+
+string Chat::getTextoCompleto() { return textoCompleto; }
 
 void Chat::imprimir() {}
