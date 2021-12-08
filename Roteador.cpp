@@ -1,11 +1,16 @@
 #include "Roteador.h"
 #include "Datagrama.h"
 #include "Evento.h"
+#include "Fila.h"
 #include "No.h"
 #include "TabelaDeRepasse.h"
 
 Roteador::Roteador(int endereco)
     : No(endereco), tabela(new TabelaDeRepasse(TAMANHO_TABELA)), atraso(0) {}
+
+Roteador::Roteador(int endereco, Fila *f)
+    : No(endereco, fila), tabela(new TabelaDeRepasse(TAMANHO_TABELA)),
+      atraso(0) {}
 
 Roteador::~Roteador() { delete tabela; }
 
